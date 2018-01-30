@@ -13,10 +13,10 @@ if __name__ == '__main__':
     else:
         cmd = sys.argv[1]
         files = ['.vimrc', '.tmux.conf']
-        print(Path() / '.vimrc', Path.home() / '.vimrc')
+        home = Path(os.path.expanduser('~'))
         if cmd == 'pull':
             for f in files:
-                shutil.copy(str(Path.home() / f), str(Path() / f))
+                shutil.copy(str(home / f), str(Path() / f))
         elif cmd == 'push':
             for f in files:
-                shutil.copy(str(Path() / f), str(Path.home() / f))
+                shutil.copy(str(Path() / f), str(home / f))
