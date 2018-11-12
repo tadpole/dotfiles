@@ -1,0 +1,38 @@
+Host lab
+    User tuke
+    Hostname 166.111.5.203
+    ServerAliveInterval 60
+Host cluster2
+    User tuke
+    HostName cluster2
+    ProxyCommand ssh lab netcat -q 3000 %h %p
+    ServerAliveInterval 60
+Host cluster13
+    User tuke
+    HostName cluster13
+    ProxyCommand ssh lab netcat -q 3000 %h %p
+    ServerAliveInterval 60
+Host cluster3
+    User tuke
+    Hostname cluster-3-0
+    ProxyCommand ssh lab netcat -q 3000 %h %p
+    ServerAliveInterval 60
+Host cluster30
+    User tuke
+    Hostname cluster30
+    ProxyCommand ssh lab netcat -q 3000 %h %p
+    ServerAliveInterval 60
+Host cluster15
+    User tuke
+    Hostname cluster15
+    ProxyCommand ssh lab netcat -q 3000 %h %p
+    ServerAliveInterval 60
+Host cluster31
+    User tuke
+    Hostname cluster31
+    ProxyCommand ssh lab netcat -q 3000 %h %p
+    ServerAliveInterval 60
+Host temp_cluster30
+    User tuke
+    Hostname 166.111.69.45
+    ServerAliveInterval 60

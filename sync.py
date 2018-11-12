@@ -12,11 +12,17 @@ if __name__ == '__main__':
         help()
     else:
         cmd = sys.argv[1]
-        files = ['.vimrc', '.tmux.conf']
+        files = ['.vimrc', '.tmux.conf', 'config', '.zshrc']
         home = Path(os.path.expanduser('~'))
-        if cmd == 'pull':
-            for f in files:
-                shutil.copy(str(home / f), str(Path() / f))
-        elif cmd == 'push':
-            for f in files:
-                shutil.copy(str(Path() / f), str(home / f))
+        for f in files:
+            if f == 'config':
+                home_path = str(home / '.ssh/config')
+            else:
+                home_path = str(home / f)
+            local_path = str(Path() / f)
+            if cmd == 'pull':
+                shutil.copy(home_path, local_path)
+                print("copy {} to {}".format(home_path, local_path))
+            elif cmd == 'push':
+                shutil.copy(local_path, home_path)
+                print("copy {} to {}".format(local_path, home_path))
