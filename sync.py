@@ -8,10 +8,13 @@ def help():
     print("cmd : [push | pull]")
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2 or sys.argv[1] not in ['push', 'pull']:
-        help()
+    if len(sys.argv) < 2:
+        cmd = 'push'
     else:
         cmd = sys.argv[1]
+    if cmd not in ['push', 'pull']:
+        help()
+    else:
         files = ['.vimrc', '.tmux.conf', 'config', '.zshrc']
         home = Path(os.path.expanduser('~'))
         for f in files:
