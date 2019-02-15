@@ -17,6 +17,7 @@ filetype plugin on
 
 ia xdate <c-r>=strftime("%Y/%m/%d %H:%M:%S")<cr>
 ia uns using namespace std;
+ia imn if __name__ == '__main__':
 ia makec++ //<c-r>=expand("%")<cr><lf><c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr><lf><c-r>=$USER<cr><lf><backspace><backspace><lf>#include <iostream><lf>using namespace std;<lf>int main(int argc, char** argv)<lf>{<lf><tab><lf>return 0;<lf><backspace>}<lf>
 "autocmd BufNewFile *.cpp 0r ~/test.cpp
 ia usaco /*<lf><backspace><backspace><backspace>ID: tuke1991<lf>PROG: <lf>LANG: C++<lf>*/<lf>#include <iostream><lf>#include <fstream><lf>using namespace std;<lf>int main(int argc, char** argv)<lf>{<lf><tab><lf>return 0;<lf><backspace>}<lf>
@@ -50,4 +51,13 @@ func! CompileRunGcc()
 	elseif &filetype == 'python'
 		exec "!python3 %"
 	endif
+endfunc
+
+map <F6> :call AddPrint()<CR>
+"add print() in current line for python
+func! AddPrint()
+	exec "w"
+	"got bugs when there is a annotation in the end of line
+	:.s/\(\w.*\)$/print(\1)/
+	:nohl
 endfunc
