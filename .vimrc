@@ -1,19 +1,6 @@
 set nocompatible              " required
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'Valloric/YouCompleteMe'
-
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-call vundle#end()
-
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 filetype plugin indent on
 set softtabstop=4
 set tabstop=4
